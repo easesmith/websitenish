@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFC0CB; /* Baby pink */
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-y: auto; /* Allow vertical scrolling globally */
+  touch-action: pan-y; /* Allow vertical scrolling gestures on touch devices */
+}
+
+/* Wrapper to center the mobile view on desktop */
+.intro-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #FFC0CB;
+}
+
+/* Mobile-first centered container */
+.mobile-container {
+  width: 100%;
+  max-width: 400px;
+  min-height: 100vh;
+  max-height: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: pageFadeIn 1.5s ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Main section that centers items vertically */
+.intro-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 60px; /* some space to prevent footer overlap */
+}
+
+.intro-gif {
+  width: 220px;
+  max-width: 100%;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.intro-gif.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-message {
+  margin-top: 25px;
+  color: #c93b4d; /* Soft muted red */
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.intro-message p {
+  margin: 6px 0;
+  letter-spacing: 0.5px;
+}
+
+.intro-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-text-main {
+  color: #D2001A; /* Crisp deep red */
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-top: 35px;
+  margin-bottom: 45px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  letter-spacing: 1px;
+}
+
+.intro-text-main.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-button {
+  background-color: #D2001A; /* Red background */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 45px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(210, 0, 26, 0.2);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s ease-out, transform 1s ease-out, scale 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 1px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.intro-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-button.visible:hover,
+.intro-button.visible:focus {
+  transform: translateY(0) scale(1.06);
+  box-shadow: 0 6px 22px rgba(210, 0, 26, 0.5);
+  outline: none;
+}
+
+.intro-button.visible:active {
+  transform: translateY(0) scale(0.95);
+  box-shadow: 0 2px 10px rgba(210, 0, 26, 0.3);
+}
+
+/* Footer Section */
+.footer-container {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+.intro-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.45); /* Soft translucent pastel pink/white */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #B42C3F; /* Nice dark pastel red/pink */
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 25px; /* Clean pill shape */
+  box-shadow: 0 4px 15px rgba(201, 59, 77, 0.08); /* Soft shadow */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: auto; /* Enable interaction for hover */
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.intro-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-footer.visible:hover {
+  transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 6px 20px rgba(201, 59, 77, 0.15);
+}
+
+.heart-icon {
+  display: inline-block;
+  font-size: 0.9rem;
+  animation: pulseHeart 1.8s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes pulseHeart {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.2); }
+  60% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
